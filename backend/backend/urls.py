@@ -3,6 +3,8 @@ from django.urls import path, include, re_path
 from django.contrib.auth.models import User
 from rest_framework import routers, serializers, viewsets
 
+from tables import views
+
 # Serializers define the API representation.
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
@@ -24,4 +26,7 @@ urlpatterns = [
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     re_path(r'^auth/', include('djoser.urls')),
     re_path(r'^auth/', include('djoser.urls.jwt')),
+    path('addFriend/<int:friend_id>/', views.add_friend, name='add_friend'),
+    path('removeFriend/<int:friend_id>/', views.remove_friend, name='remove_friend'),
+    path('getFriendAmount/<int:user_id>/', views.get_friend_amount, name='get_friend_amount'),
 ]

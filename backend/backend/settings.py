@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'djoser',
+    'tables',
 ]
 
 MIDDLEWARE = [
@@ -140,3 +141,5 @@ REST_FRAMEWORK = {
 SIMPLE_JWT = {
    'AUTH_HEADER_TYPES': ('Bearer',),
 }
+
+LOGIN_URL = '/auth/jwt/create/'
