@@ -40,9 +40,11 @@ INSTALLED_APPS = [
     'rest_framework',
     'djoser',
     'tables',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -143,3 +145,9 @@ SIMPLE_JWT = {
 }
 
 LOGIN_URL = '/auth/jwt/create/'
+
+CSRF_TRUSTED_ORIGINS = [
+    'http://localhost:8000',
+]
+
+CORS_ALLOW_ALL_ORIGINS = True
